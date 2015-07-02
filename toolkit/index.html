@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  <h1>Styleguide</h1>
+  
+  {% assign components_by_type = site.components | group_by: "type" %}
+  {% for type in components_by_type %}
+    <h3>{{ type.name }} </h3>
+    {% for entry in type.items %}
+      {% include component.html %}
+    {% endfor %}
+  {% endfor %}
+
+  <h1 class="page-heading">Docs</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
