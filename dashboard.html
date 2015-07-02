@@ -31,8 +31,11 @@ permalink: /dashboard/
   body {
     padding-top: 50px;
     padding-bottom: 30px;
-    background: #fcfcfc;
-    color:#555;
+    background: #EFEFEF;
+    color:#7E8285;
+  }
+  h1,h2,h3,h4,h5 {
+    color: #21252E;
   }
   .theme-dropdown .dropdown-menu {
     position: static;
@@ -47,6 +50,11 @@ permalink: /dashboard/
   }
   /* Bootstrap overrides */
   .panel-body {
+    min-height: 350px;
+    position: relative;
+    background: #F8F8F8;
+  }
+  .panel-body:hover {
     min-height: 350px;
     position: relative;
   }
@@ -66,7 +74,7 @@ permalink: /dashboard/
     z-index: 1;
   }
   .panel .panel-heading {
-    background: #fff;
+    background: #F8F8F8;
     border-bottom: none;
     margin-bottom: 0;
     padding-bottom: 0;
@@ -155,114 +163,63 @@ permalink: /dashboard/
   .days-chart-legend {
     top: 275px;
   }
+  .form-control {
+    border-radius: 0;
+  }
   </style>
 </head>
 <body role="document">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">Volometrix</a>
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LOGO</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" style="padding-top:8px;">
+            <!-- <div class="form-group">
+              <input type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <input type="password" placeholder="Password" class="form-control">
+            </div> -->
+            <i class="glyphicon glyphicon-user"></i> <!-- <i class="glyphicon glyphicon-cog"></i> -->
+          </form>
+        </div><!--/.navbar-collapse -->
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="#">METRICS</a></li>
-          <li><a href="#about">COLLABORATION</a></li>
-          <li><a href="#contact">TOPICS</a></li>
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">RELATIONSHIPS <span class="caret"></span></a>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+    </nav>
   <div class="container" role="main">
     <div class="row">
       <div class="col-md-12">
-        <h1 style="font-weight:200;">How you spent your time</h1>
-        <p>This dashboard shows you recent activity quality and quantity of time you spend in email and meetings.</p>
+        <h1 style="font-weight:200;">Title</h1>
+        <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo.</p>
         <hr>
-        {% include progress-bar-panel-2.html %}
       </div>
     </div>
     <div class="row">
+      <div class="col-md-4">
+        {% include/panel.html %}
+      </div>
       <div class="col-md-8">
-        {% include meeting-panel-2.html %}  
-      </div>
-      <div class="col-md-4">
-        {% include work-panel-2.html %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        {% include email-effectiveness-panel.html %}  
+        {% include/panel.html %}
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        {% include email-panel-2.html %}
+        {% include/panel.html %}
       </div>
       <div class="col-md-4">
-        {% include balance-panel-2.html %}
+        {% include/panel.html %}
       </div>
       <div class="col-md-4">
-        {% include impact-panel-2.html %}
+        {% include/panel.html %}
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-4">
-        {% include email-sent-panel-2.html %}
-      </div>
-      <div class="col-md-4">
-        {% include hours-worked-panel.html %}
-      </div>
-      <div class="col-md-4">
-        {% include weekly-meetings-panel.html %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        {% include manager-11s-panel.html %}
-      </div>
-      <div class="col-md-4">
-        {% include direct-11s-panel.html %}
-      </div>
-      <div class="col-md-4">
-        {% include reoccurring-meetings-panel.html %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-        {% include after-hours-email-panel.html %}
-      </div>
-      <div class="col-md-4">
-        {% include actionable-email-panel.html %}
-      </div>
-    </div>
-    {% include welcome-modal.html %}
-    <script>
-    $(function(){
-      var highestCol = Math.max($('.panel-body').height());
-      $('.equalHeight').height(highestCol);
-      $('.panel-body').css({ 
-        'height' : highestCol 
-      });
-    });
-    </script>
   </div>
 </body>
 </html>
